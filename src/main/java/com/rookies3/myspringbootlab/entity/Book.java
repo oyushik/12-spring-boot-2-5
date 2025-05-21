@@ -33,6 +33,10 @@ public class Book {
 
     private LocalDate publishDate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
+
     @OneToOne(mappedBy = "book",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
